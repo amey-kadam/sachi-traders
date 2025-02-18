@@ -1,0 +1,212 @@
+.features-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--background);
+  padding-top: 0;
+  margin-top: -1.5rem; /* Add negative margin to pull content up */
+}
+  
+.features-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--background);
+}
+
+.pattern-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%234CAF50' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+  
+/* Sliding Card Section */
+.sliding-card-container {
+  position: relative;
+  height: 36rem;
+  overflow: hidden;
+  margin-bottom: 4rem; /* Reduced from 5rem */
+  margin-top: 2rem; /* Add this to create some space after the title */
+}
+  
+.sliding-card video {
+  width: 100%;
+  height: 20rem; /* Fixed height for the video */
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sliding-card {
+  position: absolute;
+  top: 0;
+  left: 3rem;
+  right: 3rem;
+  bottom: 0;
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+}
+  
+.sliding-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+  
+.sliding-card.inactive {
+  opacity: 0;
+  transform: translateX(100%);
+  pointer-events: none;
+}
+  
+.sliding-card-content {
+  background-color: rgba(243, 244, 246, 0.8);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  height: auto; /* Change from fixed height to auto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+  
+.sliding-card-content h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+  
+.sliding-card-content p {
+  color: #374151;
+}
+  
+/* Feature Sections */
+.feature-section, .feature-section-reverse {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem; /* Reduced from 5rem */
+  position: relative;
+  z-index: 1;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .feature-section, .feature-section-reverse {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Feature Card Styles */
+.feature-card {
+  width: 100%;
+  background-color: rgba(243, 244, 246, 0.8);
+  padding: 3rem; /* Reduced from 5rem */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+  flex: 1;
+  max-width: 600px; /* Set a maximum width */
+  margin: 0 auto; /* Center the card */
+}
+
+/* Feature Text Styles */
+.feature-text {
+  flex: 1;
+  max-width: 500px;
+  padding: 2rem;
+  margin: 0;
+}
+
+/* Modified heading styles for one-line display */
+.feature-text h3 {
+  font-size: 1.1rem; /* Reduced from 1.5rem */
+  font-weight: 700;
+  margin-bottom: 0.5rem; /* Reduced from 1rem */
+  white-space: nowrap; /* Keeps text in one line */
+  text-overflow: ellipsis; /* Adds ellipsis if text overflows */
+  overflow: hidden; /* Hides overflow */
+  display: inline-block; /* Makes the headings display inline */
+  margin-right: 1rem; /* Adds spacing between headings when inline */
+}
+
+.feature-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+  clear: both; /* Makes sure paragraphs start on a new line after the inline headings */
+}
+
+/* Reverse Section Order */
+.feature-section-reverse .feature-card {
+  order: 2;
+}
+
+.feature-section-reverse .feature-text {
+  order: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .feature-text, .feature-card {
+    max-width: 100%;
+    margin: 0;
+    padding: 1.5rem;
+  }
+  
+  .feature-section, .feature-section-reverse {
+    padding: 0 1rem;
+  }
+  
+  .feature-section-reverse .feature-card {
+    order: 1;
+  }
+  
+  .feature-section-reverse .feature-text {
+    order: 2;
+  }
+  
+  .feature-text h3 {
+    white-space: normal; /* Allow text to wrap on smaller screens */
+    margin-bottom: 0.75rem;
+    display: block; /* Stack headings vertically on mobile */
+  }
+}
+
+/* Text Highlights */
+.feature-text .font-semibold {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* Heading container for side-by-side display */
+.heading-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+/* Fix for py-20 removal */
+.features-container.py-20 {
+  padding-top: 0; /* Override the py-20 class */
+  padding-bottom: 2rem; /* Keep some bottom padding */
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
