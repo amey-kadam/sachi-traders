@@ -1,20 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import './clients.css';
 
 const ClientsSection = () => {
+    const navigate = useNavigate();
+  
   const clients = [
     {
       name: "BANANA",
       image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=800"
     },
     {
-      name: "SOYABEAN",
-      // Updated with a clearer soyabean image
-      image: "https://images.unsplash.com/photo-1612257999580-af3cb8bb8492?q=80&w=800"
+      name: "CORN",
+      image: "https://images.unsplash.com/photo-1634467524884-897d0af5e104?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dq=80&w=800"
+      
     },
     {
       name: "POMEGRANATE",
-      // Updated with a clearer pomegranate image
       image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?q=80&w=800"
     },
     {
@@ -38,7 +41,8 @@ const ClientsSection = () => {
               className="client-card"
               style={{ 
                 animationDelay: `${index * 0.1}s`,
-                backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url(${client.image})`,
+                backgroundImage: `url(${client.image})`,
+                opacity: 0.9,  // Add this line                
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
@@ -49,7 +53,9 @@ const ClientsSection = () => {
           ))}
         </div>
 
-        <button className="cS-button primary">
+        <button className="cS-button primary"
+                      onClick={() => navigate('/products')}
+>
           More Products
         </button>
       </div>

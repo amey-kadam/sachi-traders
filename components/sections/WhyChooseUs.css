@@ -3,6 +3,8 @@
   width: 100%;
   overflow: hidden;
   background: var(--background);
+  margin-top: -4rem;
+
 }
 
 .features-background {

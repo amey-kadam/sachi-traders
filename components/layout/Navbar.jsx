@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
@@ -6,8 +7,8 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { title: 'Products', href: '/products' },
-    { title: 'About', href: '/about' },
+    { title: 'Products', href: '/products' }, 
+    { title: 'About', href: '/About' },
     { title: 'Contact', href: '/contact' }
   ];
 
@@ -15,18 +16,17 @@ const Navbar = () => {
     <nav>
       <div className="max-w-7xl">
         <div className="flex">
-          {/* Brand Name on the left */}
-          <span className="brand-name">Sachi Traders</span>
+          <Link to="/" className="brand-name">Sachi Traders</Link>
 
           {/* Desktop Navigation */}
           <div className="nav-links">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.title}
-                href={item.href}
+                to={item.href}
               >
                 {item.title}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -43,12 +43,12 @@ const Navbar = () => {
         {isOpen && (
           <div className="mobile-nav">
             {menuItems.map((item) => (
-              <a
+              <Link
                 key={item.title}
-                href={item.href}
+                to={item.href}
               >
                 {item.title}
-              </a>
+              </Link>
             ))}
           </div>
         )}

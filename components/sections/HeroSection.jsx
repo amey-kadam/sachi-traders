@@ -1,7 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './HeroSection.css';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="hero-container">
       <div className="hero-background">
@@ -12,20 +15,23 @@ const HeroSection = () => {
         <div className="hero-text-container">
           <h1 className="hero-title">
             <span className="company-name">Sachi Traders</span>
-            <br></br>
+            <br />
             <span className="title-subtitle">Integrity in Trade, Excellence in Service</span>
           </h1>
           
           <p className="hero-description">
-          Delivering Global Excellence: India's Premium Products to the World's Doorstep
-         
+            Delivering Global Excellence: India's Premium Products to the World's Doorstep
           </p>
           
           <div className="hero-cta-container">
-            <button className="cta-button primary">
+            <button 
+              className="cta-button primary"
+              onClick={() => navigate('/products')}
+            >
               Explore Products
             </button>
-            <button className="cta-button secondary">
+            <button className="cta-button secondary"
+            >
               Contact Us
             </button>
           </div>
@@ -33,7 +39,7 @@ const HeroSection = () => {
         
         <div className="hero-stats">
           <div className="stat-item">
-            <span className="stat-number">3145            +</span>
+            <span className="stat-number">3145+</span>
             <span className="stat-label">Organic Products</span>
           </div>
           <div className="stat-item">
